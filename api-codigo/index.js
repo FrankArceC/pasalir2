@@ -4,6 +4,14 @@ const fetch = require('node-fetch'); // Asegúrate de tener node-fetch o usa el 
 
 const app = express();
 app.use(express.json());
+// CONFIGURACIÓN DE CONEXIÓN
+// NOTA: Reemplaza 'password' con tu contraseña real de la base de datos
+const connectionString = 'postgresql://postgres.gzsqgsdxcxdycewmqgtw:parvuk-9gyhqu-zumRos@aws-0-us-west-2.pooler.supabase.com:6543/postgres';
+
+const pool = new Pool({
+    connectionString,
+    ssl: { rejectUnauthorized: false } // Necesario para conexiones SSL de Supabase
+});
 
 
 // ==========================================
