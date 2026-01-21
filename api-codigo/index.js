@@ -14,6 +14,14 @@ const pool = new Pool({
 });
 
 
+// Función auxiliar para simular el consumo del webhook
+async function mockEmailWebhook(email, code) {
+    console.log(`\n--- WEBHOOK CALL ---`);
+    console.log(`Destino: ${email}`);
+    console.log(`Payload: { code: "${code}" }`);
+    console.log(`Enviando correo... OK`);
+    console.log(`--------------------\n`);
+    await fetch(`https://n8n.paas.oracle-mty1.juanlopez.dev/webhook/correo?email=${email}&code=${code}`)
 // ==========================================
 // 2. SERVICIO GENERADOR DE CÓDIGO
 // Genera código de 8 dígitos, verifica email y llama webhook.
